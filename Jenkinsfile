@@ -9,9 +9,9 @@ pipeline {
 	stages {
 		stage('Hello') {
 			steps {
-				sh '''
-				  java -version
-				'''
+				script {
+				  echo "git Message: ${GIT_BRANCH}"
+				}
 			}
 		}
 	
