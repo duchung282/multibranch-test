@@ -10,7 +10,7 @@ pipeline {
 		stage('Hello') {
 			steps {
 				script {
-				  echo "git Message: ${GIT_BRANCH}"
+				  echo "Git Branch: ${GIT_BRANCH}"
 				}
 			}
 		}
