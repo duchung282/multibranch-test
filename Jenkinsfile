@@ -1,4 +1,4 @@
-def jobName="Bob1-dev_${GIT_BRANCH}"
+def jobName="Bob1-dev"
 def unity_version="2021.3.16f1"
 def s3PathArmv7 = null
 def s3PathArm64 = null
@@ -13,8 +13,8 @@ pipeline {
 
 	environment{
 	   UNITY_PATH="/Applications/Unity/Hub/Editor/${unity_version}/Unity.app/Contents/MacOS/Unity"
-	   workingDir="/Users/falconbuilder/Workspace/hungnd/jenkins/workspace/${jobName}"
-	   logDir="/Users/falconbuilder/Workspace/hungnd/jenkins/logs/${jobName}.log"
+	   workingDir="/Users/falconbuilder/Workspace/hungnd/jenkins/workspace/${jobName}_${GIT_BRANCH}"
+	   logDir="/Users/falconbuilder/Workspace/hungnd/jenkins/logs/${jobName}_${GIT_BRANCH}.log"
 	}
 	
 	stages {
@@ -22,6 +22,7 @@ pipeline {
 			steps {
 				script {
 				  echo "Git Branch: ${GIT_BRANCH}"
+				  echo "working Dir: ${workingDir}"
 				}
 			}
 		}
